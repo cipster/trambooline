@@ -1,0 +1,15 @@
+version: '2'
+services:
+  db:
+     container_name: db.trambooline.me
+     domainname: db.trambooline.me
+     command: postgres -c config_file=/etc/postgresql.conf
+     hostname: db
+     image: postgres
+     env_file: ./docker/postgres/.env
+     build: ./docker/postgres
+     ports:
+        - "5432:5432"
+     volumes:
+        - ./docker/postgres/raindrop_postgres.conf:/etc/postgresql.conf
+        - ./docker/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql

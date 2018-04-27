@@ -1,0 +1,77 @@
+<md-dialog aria-label="Add Ride" flex="50">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            Adaug&abreve; curs&abreve;
+        </div>
+    </md-toolbar>
+
+    <md-dialog-content layout-padding class="min-height">
+        <form name="FORM" class="md-inline-form" ng-cloak>
+            <input hidden ng-model="$ctrl.ride.id">
+            <input hidden ng-model="$ctrl.ride.version">
+
+            <md-input-container class="md-block">
+                <label>Nume</label>
+                <input required name="name" ng-model="$ctrl.ride.name">
+                <div ng-messages="FORM.name.$error">
+                    <div ng-message="required">C&acirc;mp obligatoriu</div>
+                </div>
+            </md-input-container>
+            <div layout="row">
+                <md-input-container flex="60">
+                    <label>Durata cursei (&icirc;n minute)</label>
+                    <input required type="number" name="duration" ng-model="$ctrl.ride.duration">
+                    <div ng-messages="FORM.duration.$error">
+                        <div ng-message="required">C&acirc;mp obligatoriu</div>
+                    </div>
+                </md-input-container>
+
+                <md-input-container flex="40">
+                    <label>Pret (RON)</label>
+                    <input required type="number" name="price" ng-model="$ctrl.ride.price">
+                    <div ng-messages="FORM.price.$error">
+                        <div ng-message="required">C&acirc;mp obligatoriu</div>
+                    </div>
+                </md-input-container>
+            </div>
+
+            <div layout="row">
+                <md-input-container flex="50" layout="column">
+                    <label>Capacitate maxim&abreve;</label>
+                    <input type="number" name="capacity" ng-model="$ctrl.ride.capacity">
+                    <div ng-messages="FORM.capacity.$error">
+                        <div ng-message="required">C&acirc;mp obligatoriu</div>
+                    </div>
+                </md-input-container>
+
+                <md-input-container flex="50" layout="column">
+                    <md-card class="info-message">
+                        <md-card-content>
+                            <p>
+                                <md-icon class="material-icons" aria-label="info">info</md-icon>
+                                Dac&abreve; alegi capacitatea maxim&abreve; atunci vei fi anuntat c&acirc;nd nu mai este
+                                loc &icirc;n&abreve;untru
+                            </p>
+                        </md-card-content>
+                    </md-card>
+                </md-input-container>
+            </div>
+            <md-input-container class="md-block">
+                <md-checkbox name="notify" ng-model="$ctrl.ride.notify" ng-checked="true">
+                    Anunt&abreve;-m&abreve; cand expir&abreve; timpul pentru participanti
+                </md-checkbox>
+            </md-input-container>
+        </form>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+        <md-button aria-label="submit"
+                   class="md-primary md-raised"
+                   ng-disabled="FORM.$pristine || FORM.$invalid"
+                   ng-click="$ctrl.submit(FORM)">
+            Adaug&abreve;
+        </md-button>
+        <md-button aria-label="close" ng-click="$ctrl.closeDialog()">
+            &Icirc;nchide
+        </md-button>
+    </md-dialog-actions>
+</md-dialog>

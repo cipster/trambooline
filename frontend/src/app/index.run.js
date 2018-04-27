@@ -2,13 +2,14 @@
     'use strict';
 
     angular
-        .module('angularSeedApp')
+        .module('trambooline')
         .run(runBlock);
 
     /** @ngInject */
-    function runBlock($log) {
+    function runBlock(ENV, UrlUtils) {
 
-        $log.debug('runBlock end');
+        ENV.apiUrl = UrlUtils.generateDomain(window.location.href) + '/api';
+        ENV.domain = UrlUtils.generateDomain(window.location.href);
     }
 
 })();

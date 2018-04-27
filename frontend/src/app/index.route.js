@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('angularSeedApp')
+        .module('trambooline')
         .config(routeConfig);
 
     /** @ngInject */
@@ -10,9 +10,7 @@
         $stateProvider
             .state('home', {
                 url: '/',
-                templateUrl: 'app/main/main.html',
-                controller: 'MainController',
-                controllerAs: 'main'
+                template: '<main></main>'
             });
 
         $urlRouterProvider.otherwise('/');

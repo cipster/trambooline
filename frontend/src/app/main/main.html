@@ -1,11 +1,69 @@
-<div class="container">
-    <div>
-        <acme-navbar />
-    </div>
-    <div class="jumbotron text-center">
-        <h1>Angular Gulp Seed</h1>
-        <p class="lead">
-            <br> Quickstart project for Angular + Gulp
-        </p>
-    </div>
-</div>
+<md-sidenav class="md-sidenav-right"
+            md-component-id="right"
+            md-whiteframe="4">
+
+    <md-toolbar class="md-padding" layout-align="start start">
+        <span>
+            <md-icon class="material-icons" aria-label="menu">menu</md-icon>
+            Set&abreve;ri
+        </span>
+    </md-toolbar>
+
+    <md-content>
+        <md-list ng-cloak>
+            <md-list-item ng-click="$ctrl.openAddDialog()">
+                <md-icon class="material-icons" aria-label="add">add</md-icon>
+                <p>Adaug&abreve; curs&abreve;</p>
+            </md-list-item>
+        </md-list>
+        <md-divider></md-divider>
+        <md-button class="md-primary md-raised pull-right" ng-click="$ctrl.toggleSidebar()">
+            &Icirc;nchide
+        </md-button>
+    </md-content>
+
+</md-sidenav>
+<md-content>
+    <md-button aria-label="menu" class="md-primary md-fab md-mini pull-right" ng-click="$ctrl.toggleSidebar()">
+        <md-icon class="material-icons" aria-label="menu">menu</md-icon>
+    </md-button>
+    <md-tabs md-selected="$ctrl.selectedIndex"
+             md-border-bottom
+             md-autoselect
+             md-stretch-tabs="always"
+             md-dynamic-height
+             md-swipe-content>
+        <md-tab ng-repeat="ride in $ctrl.rides track by ride._links.self.href"
+                ng-disabled="ride.disabled"
+                layout-fill
+                layout-align="center center">
+            <md-tab-label>
+                <md-icon class="material-icons" aria-label="view_carousel">view_carousel</md-icon>
+                {{ride.name}}
+            </md-tab-label>
+            <md-tab-body>
+                <md-card class="md-padding">
+                    <md-card-title layout="row">
+                        <md-card-title-text>
+                            <span class="md-subhead">
+                                Pret: {{::ride.price}} RON
+                            </span>
+                            <span class="md-subhead">
+                                Durat&abreve;: {{::ride.duration}} minute
+                            </span>
+                            <span class="md-subhead">Sunt 1 / {{ride.capacity}} persoane &icirc;n&abreve;untru</span>
+                        </md-card-title-text>
+                    </md-card-title>
+                    <md-card-actions layout="row" layout-align="end center">
+                        <!--<md-button class="md-warn md-raised"-->
+                        <!--ng-click="$ctrl.removeRide(ride)">-->
+                        <!--<md-icon class="material-icons" aria-label="delete">delete</md-icon>-->
+                        <!--Sterge cursa-->
+                        <!--</md-button>-->
+                    </md-card-actions>
+                </md-card>
+            </md-tab-body>
+        </md-tab>
+        </md-tab>
+    </md-tabs>
+</md-content>

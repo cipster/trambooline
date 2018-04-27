@@ -1,7 +1,31 @@
-(function() {
+(function () {
     'use strict';
 
     angular
-        .module('angularSeedApp', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ui.router', 'ui.bootstrap']);
+        .module('trambooline', [
+            'ui.router',
+            'ngAnimate',
+            'ngAria',
+            'ngMessages',
+            'ngMaterial',
+            'angularMoment',
+            'ngAvatar',
+            'ngCookies',
+            'ngSanitize',
+            'ngResource',
+            'ngMaterial',
+            'ngStorage',
+            'ngScrollbars',
+            'mdPickers',
+            'ngLodash',
+            'lfNgMdFileInput',
+            'angular-loading-bar',
+            'spring-data-rest',
+            'pascalprecht.translate',
+            'sprintf',
+            'rides'
+
+
+        ]);
 
 })();

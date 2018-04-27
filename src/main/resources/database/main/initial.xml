@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="initial-tables" author="cipster" context="schema">
+        <validCheckSum>ANY</validCheckSum>
+
+        <createSequence sequenceName="ride_id_seq"/>
+        <createTable tableName="ride">
+            <column type="varchar(255)" name="name">
+                <constraints nullable="false"/>
+            </column>
+            <column type="numeric" name="duration">
+                <constraints nullable="false"/>/
+            </column>
+
+            <column type="numeric" name="price">
+                <constraints nullable="false"/>/
+            </column>
+
+            <column type="numeric" name="capacity"/>
+            <column type="boolean" name="notify"/>
+
+            <!--inherited from BaseEntity-->
+            <column name="id" type="bigint">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="version" type="bigint"/>
+            <column name="deleted" type="boolean" defaultValue="false">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="timestamp with time zone">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_date" type="timestamp with time zone"/>
+            <!--inherited from BaseEntity-->
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
